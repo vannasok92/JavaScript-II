@@ -2,6 +2,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
+
 /* 
 
   // GIVEN THIS PROBLEM:
@@ -40,25 +41,38 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
+  return `The lenght of array is: ${items.length}`;
   // getLength passes the length of the array into the callback.
+  
 }
+console.log(getLength(items, getLength));
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return `Last item is: ${items[items.length-1]} `;
 }
+console.log(last(items,items[items.length-1]));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return x+y;
 }
+console.log(sumNums(2,4, sumNums));
 
 function multiplyNums(x, y, cb) {
+  return x*y;
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+console.log(multiplyNums(2,4, multiplyNums));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
+  return list.includes(item);
+  
   // Pass true to the callback if it is, otherwise pass false.
 }
+console.log(contains('Gum',items, contains));
 
 /* STRETCH PROBLEM */
 
