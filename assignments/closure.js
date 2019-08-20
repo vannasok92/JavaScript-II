@@ -4,6 +4,27 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function pc_pick(){
+  const brand= 'apple';
+  const color= 'gray';
+  console.log(`It is Macbook Prp from ${brand}, ${color} color`);
+
+  function pc_spec(){
+    const ram = '16 GB';
+    const hd = '256 GB';
+    console.log(`This pc come with ${ram} ram, ${hd} storage.`);
+
+    function screen(){
+      const size = 13;
+      const display = 'retina';
+      console.log(`The screen size is: ${size} with ${display}`);
+    }//screen
+    screen();
+  }//pc spec
+  pc_spec();
+} //pc pick
+pc_pick();
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -16,6 +37,11 @@ const counterMaker = () => {
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
   // 3- Return the `counter` function.
+  let count =0;
+  function counter(){
+    return count++;
+  }//counter f
+  return counter();
 };
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1

@@ -2,6 +2,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
+
 /* 
 
   // GIVEN THIS PROBLEM:
@@ -40,25 +41,57 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
+  return cb(arr);
   // getLength passes the length of the array into the callback.
 }
+function len (n){
+  return n.length;
+}
+console.log("the lenght: " + getLength(items, len));
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr);
 }
+function l_name (str){
+  return str[str.length-1];
+}
+console.log("last item is: "+last(items, l_name));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x,y);
 }
+function sum (a,b){
+  return a+b;
+}
+console.log("the sum is: "+ sumNums(2,4, sum));
 
 function multiplyNums(x, y, cb) {
+  return cb(x,y);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+function mul (n1,n2){
+  return n1*n2;
+}
+console.log(multiplyNums(2,4, mul));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(item, list);
 }
+function check (item, list){
+  if(list.includes(item)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+console.log(contains('Gum',items, check));
+console.log(contains('apple',items, check));
 
 /* STRETCH PROBLEM */
 
