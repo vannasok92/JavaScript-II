@@ -41,38 +41,57 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
-  return `The lenght of array is: ${items.length}`;
+  return cb(arr);
   // getLength passes the length of the array into the callback.
-  
 }
-console.log(getLength(items, getLength));
+function len (n){
+  return n.length;
+}
+console.log("the lenght: " + getLength(items, len));
 
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
-  return `Last item is: ${items[items.length-1]} `;
+  return cb(arr);
 }
-console.log(last(items,items[items.length-1]));
+function l_name (str){
+  return str[str.length-1];
+}
+console.log("last item is: "+last(items, l_name));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return x+y;
+  return cb(x,y);
 }
-console.log(sumNums(2,4, sumNums));
+function sum (a,b){
+  return a+b;
+}
+console.log("the sum is: "+ sumNums(2,4, sum));
 
 function multiplyNums(x, y, cb) {
-  return x*y;
+  return cb(x,y);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
-console.log(multiplyNums(2,4, multiplyNums));
+function mul (n1,n2){
+  return n1*n2;
+}
+console.log(multiplyNums(2,4, mul));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
-  return list.includes(item);
-  
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(item, list);
 }
-console.log(contains('Gum',items, contains));
+function check (item, list){
+  if(list.includes(item)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+console.log(contains('Gum',items, check));
+console.log(contains('apple',items, check));
 
 /* STRETCH PROBLEM */
 
